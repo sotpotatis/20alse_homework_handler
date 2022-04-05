@@ -74,7 +74,7 @@ async def add_homework(ctx):
     further_details_message = await ctx.send(embed=FLAG_EMBED)
     await further_details_message.add_reaction("🎓")
     #Leave 10 seconds for reactions.
-    await asyncio.sleep(2)
+    await asyncio.sleep(10)
     #Get reactions
     further_details_message = await ctx.fetch_message(further_details_message.id)
     is_exam_flag = False

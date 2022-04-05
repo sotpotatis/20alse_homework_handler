@@ -134,7 +134,9 @@ async def list_homework(ctx):
         {assignment['description']}
         Klar: `{assignment['due']}`
         Är prov: `{'Ja' if assignment['is_exam'] else 'Nej'}`
-        *Kommando för redigering:* `'ehw {i} <sak att redigera> <nytt värde>`\n"""
+        *Kommando för redigering:* `'ehw {i} <sak att redigera> <nytt värde>`
+        *Kommando för att ta bort:* `rhw {i}`
+        \n"""
         i += 1
     logger.info("Homework list generated. Sending confirmation message...")
     final_embed = Embed(
@@ -204,7 +206,7 @@ async def remove_homework(ctx, assignment_number:int):
         )
     else:
         logger.info(f"Removing homework at {assignment_number}...")
-        homework.pop(assignment_number)
+        homework.pop(assignment_number-1)
     #Create pending embed
     status_embed = Embed(
         title="Status: Skickar via SFTP...",

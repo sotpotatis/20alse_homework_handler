@@ -1,5 +1,4 @@
-import os, asyncio, logging
-from discord_bot import data_handler
+import os, asyncio, logging, data_handler
 from discord import Embed,Color
 from discord.ext import commands
 

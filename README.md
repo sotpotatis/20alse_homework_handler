@@ -16,3 +16,6 @@ I am partly storing this on GitHub for my own convience, but you are of course w
    2. `SSIS_PASSWORD` - The passwords for your SFTP login to `hem.ssis.nu`.
    3. `HOMEWORK_BOT_TOKEN` - The token that the Discord client should log in with (aka your Discord bot token
    4. Optionally, set `SSH_HOST_KEYS_FILEPATH` for the path to load SSH host key from. If not set, it will load from the default directory.
+
+3. Optionally, use the provided systemctl service files and/or the script to make the bot run on startup
+4. To start the Discord bot, run `python3 <CLONED REPO PATH>/discord_bot/main.py`

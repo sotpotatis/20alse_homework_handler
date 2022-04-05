@@ -1,0 +1,9 @@
+[Unit]
+Description=Runs the 20alse homework management bot
+
+[Service]
+Type=simple
+ExecStart=/srv/run_homework_bot.sh
+
+[Install]
+WantedBy=multi-user.target

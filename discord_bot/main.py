@@ -248,4 +248,4 @@ async def on_command_error(ctx, error):
         await ctx.send(embed=error_embed) #Send error message
 
 
-bot.run(os.environ["BOT_TOKEN"])
+bot.run(os.environ["HOMEWORK_BOT_TOKEN"])

@@ -193,6 +193,7 @@ async def edit_homework(ctx, assignment_number: int, thing_to_change:str, new_va
     await ctx.send(embed=confirmation_embed)
 
 @bot.command(aliases=["rhw", "r"])
+@commands.is_owner()
 async def remove_homework(ctx, assignment_number:int):
     '''Removes a homework from the list of homework.'''
     homework = data_handler.get_homework_file()

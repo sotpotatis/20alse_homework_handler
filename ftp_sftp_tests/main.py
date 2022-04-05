@@ -1,5 +1,5 @@
 import logging, datetime, pytz
-from discord_bot import data_handler
+from data_handler import data_handler
 
 logger = logging.getLogger(__name__)
 logging.basicConfig(level=logging.DEBUG)

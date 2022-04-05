@@ -1,7 +1,7 @@
-import os, asyncio, logging, data_handler
+import os, asyncio, logging
 from discord import Embed,Color
 from discord.ext import commands
-
+from data_handler import data_handler #Import data handler code
 #Logging
 logger = logging.getLogger(__name__)
 logging.basicConfig(
@@ -12,7 +12,7 @@ logger.info("Made with <3 by 20alse")
 #Bot
 bot = commands.Bot(command_prefix="'", help_command=None)
 
-#Embeds
+#Embeds for certain messages
 INTRO_EMBED=Embed(
     title="Jag hör dig!",
     description="Skriv titeln på den läxa som du vill lägga till.",

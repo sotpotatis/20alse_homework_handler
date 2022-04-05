@@ -1,4 +1,5 @@
-import logging, data_handler, datetime, pytz, os
+import logging, datetime, pytz, os
+from discord_bot import data_handler
 from ftplib import FTP_TLS
 
 logger = logging.getLogger(__name__)

@@ -11,7 +11,7 @@ I am partly storing this on GitHub for my own convience, but you are of course w
 ### Setup
 
 1. Install the requirements: `pip install -r requirements.txt`.
-2. Set the following environment variables:
+2. Set the following environment variables (if using the provided systemd service, you can edit these variables in `run_homework_bot.sh`):
    1. `SSIS_USERNAME` - The username for your SFTP login to `hem.ssis.nu`.
    2. `SSIS_PASSWORD` - The passwords for your SFTP login to `hem.ssis.nu`.
    3. `HOMEWORK_BOT_TOKEN` - The token that the Discord client should log in with (aka your Discord bot token

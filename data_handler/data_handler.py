@@ -1,4 +1,4 @@
-import requests, logging, os, json
+import requests, logging, os, json, datetime
 from paramiko import SSHClient, SFTPClient
 
 logger = logging.getLogger(__name__)
@@ -13,7 +13,15 @@ def get_homework_file():
     logger.debug(f"File content: {request.json()}")
     return request.json()
 
-def upload_homework_file(new_content):
+def upload_homework_file(new_content:list):
+    '''Uploads an updated homework file to the server.
+
+    :param new_content: The new content to upload to the server.'''
+    #We want the list to be in order so that the newest homework appears first, and vice versa.
+    date_to_datetime = lambda string: datetime.datetime.strptime(string, "%Y-m-d")
+    logger.info("Sorting homework file content by date...")
+    new_content = new_content.sort(key=date_to_datetime)
+    logger.info("Homework file sorted by date.")
     #Start an SFTP session
     logger.debug(f"Connecting to SFTP with username {os.environ['SSIS_USERNAME']}, password {os.environ['SSIS_PASSWORD']}")
     client = SSHClient()

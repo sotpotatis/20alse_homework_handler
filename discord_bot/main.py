@@ -43,6 +43,23 @@ FLAG_EMBED=Embed(
     color=Color.blue()
 )
 FLAG_EMBED.set_footer(text="Du har 10 sekunder på dig att lägga till reaktioner.")
+
+@bot.command()
+async def ping(ctx):
+    '''A simple ping command.'''
+    logger.info("Got a request to send ping information. Generating message and sending...")
+    final_embed = Embed(
+        title="Pong!",
+        color=Color.blue()
+    )
+    final_embed.add_field(
+        name="Ping-information",
+        value=f"Min aktuella pingtid är {round(bot.latency), 2} ms.",
+        inline=True
+    )
+    await ctx.send(embed=final_embed)
+    logger.info("Ping information message sent.")
+
 @bot.command(aliases=["ahw", "a"])
 @commands.is_owner()
 async def add_homework(ctx):
@@ -135,7 +152,7 @@ async def list_homework(ctx):
         Klar: `{assignment['due']}`
         Är prov: `{'Ja' if assignment['is_exam'] else 'Nej'}`
         *Kommando för redigering:* `'ehw {i} <sak att redigera> <nytt värde>`
-        *Kommando för att ta bort:* `rhw {i}`
+        *Kommando för att ta bort:* `'rhw {i}`
         \n"""
         i += 1
     logger.info("Homework list generated. Sending confirmation message...")

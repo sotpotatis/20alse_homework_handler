@@ -54,7 +54,7 @@ async def ping(ctx):
     )
     final_embed.add_field(
         name="Ping-information",
-        value=f"Min aktuella pingtid är `{round(bot.latency, 2)}` ms (till 8.8.8.8: `{ping3.ping('8.8.8.8')}`.",
+        value=f"Min aktuella pingtid är `{round(bot.latency, 3)}` ms (till 8.8.8.8: `{round(ping3.ping('8.8.8.8'), 3)}`) ms.",
         inline=True
     )
     await ctx.send(embed=final_embed)

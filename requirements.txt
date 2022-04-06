@@ -2,3 +2,4 @@ discord~=1.7.3
 pytz~=2018.9
 paramiko~=2.10.3
 requests~=2.21.0
+ping3~=1.4.1

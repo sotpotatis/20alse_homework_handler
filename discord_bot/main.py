@@ -1,4 +1,4 @@
-import os, asyncio, logging
+import os, asyncio, logging, ping3
 from discord import Embed,Color
 from discord.ext import commands
 from data_handler import data_handler #Import data handler code
@@ -54,7 +54,7 @@ async def ping(ctx):
     )
     final_embed.add_field(
         name="Ping-information",
-        value=f"Min aktuella pingtid är {round(bot.latency), 2} ms.",
+        value=f"Min aktuella pingtid är `{round(bot.latency, 2)}` ms (till 8.8.8.8: `{ping3.ping('8.8.8.8')}`.",
         inline=True
     )
     await ctx.send(embed=final_embed)
@@ -183,7 +183,7 @@ async def edit_homework(ctx, assignment_number: int, thing_to_change:str, new_va
     VALID_EDIT_KEYS = ["title", "description", "course", "due", "is_exam"]
     if thing_to_change not in VALID_EDIT_KEYS:
         await ctx.send(embed=Embed(title="Fel",
-                             description=f"Du kan bara redigera följande: {','.join(VALID_EDIT_KEYS)}",
+                             description=f"Du kan bara redigera följande: `{', '.join(VALID_EDIT_KEYS)}`",
                              color=Color.red()))
         return
     assignment = homework[assignment_number - 1]
@@ -205,7 +205,7 @@ async def edit_homework(ctx, assignment_number: int, thing_to_change:str, new_va
     #Send confirmation message
     confirmation_embed = Embed(
         title="Klar!",
-        description=f"Jag har uppdaterat läxan med nummer `{assignment_number}`. Parametern som har uppdaterats är {thing_to_change} och det nya värdet är `{new_value}`.",
+        description=f"Jag har uppdaterat läxan med nummer `{assignment_number}`. Parametern som har uppdaterats är `{thing_to_change}` och det nya värdet är `{new_value}`.",
         color=Color.blue())
     await ctx.send(embed=confirmation_embed)
 

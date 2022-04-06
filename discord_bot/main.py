@@ -182,7 +182,7 @@ async def edit_homework(ctx, assignment_number: int, thing_to_change:str, new_va
         return
     VALID_EDIT_KEYS = ["title", "description", "course", "due", "is_exam"]
     if thing_to_change not in VALID_EDIT_KEYS:
-        await ctx.send(Embed(title="Fel",
+        await ctx.send(embed=Embed(title="Fel",
                              description=f"Du kan bara redigera följande: {','.join(VALID_EDIT_KEYS)}",
                              color=Color.red()))
         return

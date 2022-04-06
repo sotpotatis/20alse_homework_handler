@@ -20,7 +20,7 @@ def upload_homework_file(new_content:list):
     #We want the list to be in order so that the newest homework appears first, and vice versa.
     date_to_datetime = lambda assignment: datetime.datetime.strptime(assignment["due"], "%Y-%m-%d")
     logger.info("Sorting homework file content by date...")
-    new_content = new_content.sort(key=date_to_datetime)
+    new_content.sort(key=date_to_datetime)
     logger.info("Homework file sorted by date.")
     #Start an SFTP session
     logger.debug(f"Connecting to SFTP with username {os.environ['SSIS_USERNAME']}, password {os.environ['SSIS_PASSWORD']}")
